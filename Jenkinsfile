@@ -25,7 +25,9 @@ pipeline{
                         docker stop clientcontainer && docker rm -f clientcontainer
                     fi
                 '''
+                sh 'docker run --name clientcontainer clientimage:latest'
             }
+        }
         }
     }
     post{
