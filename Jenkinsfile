@@ -19,7 +19,12 @@ pipeline{
         }
         stage('Deploy Container'){
             steps{
-                sh 'docker run -d -p 3000:80 --name clientcontainer clientimage:latest'
+                sh '''
+                    if docker ps -a | grep -q clientcontainer;
+                    then
+                        docker stop clientcontainer && docker rm -f clientcontainer
+                    fi
+                '''
             }
         }
     }
