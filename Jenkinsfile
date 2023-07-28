@@ -28,7 +28,6 @@ pipeline{
                 sh 'docker run --name clientcontainer clientimage:latest'
             }
         }
-        }
     }
     post{
         always{
