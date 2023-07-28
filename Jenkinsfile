@@ -25,7 +25,7 @@ pipeline{
                         docker stop clientcontainer && docker rm -f clientcontainer
                     fi
                 '''
-                sh 'docker run -d -p 80:3000 --name clientcontainer clientimage:latest'
+                sh 'docker run -d -p 3000:80 --name clientcontainer clientimage:latest'
             }
         }
     }
